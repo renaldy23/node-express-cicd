@@ -54,5 +54,5 @@ jobs:
           script: |
             docker login -u ${{ secrets.HUB_USERNAME }} -p ${{ secrets.HUB_TOKEN }}
             docker pull ${{ secrets.HUB_USERNAME }}/node-cicd:${{ github.run_number }}
-            docker rm -f ${{ secrets.HUB_USERNAME }}/node-cicd
-            docker run -d -p 80:3000 ${{ secrets.HUB_USERNAME }}/node-cicd
+            docker rm -f mrenaldyr/node-cicd
+            docker run -d -p 80:3000 --name  ${{ secrets.HUB_USERNAME }}/node-cicd ${{ secrets.HUB_USERNAME }}/node-cicd:${{ github.run_number }}
