@@ -53,6 +53,5 @@ jobs:
           port: 22
           script: |
             docker login -u ${{ secrets.HUB_USERNAME }} -p ${{ secrets.HUB_TOKEN }}
-            docker rm -f ${{ secrets.HUB_USERNAME }}/node-cicd
             docker pull ${{ secrets.HUB_USERNAME }}/node-cicd:${{ github.run_number }}
             docker run -d -p 80:3000 --name ${{ secrets.HUB_USERNAME }}/node-cicd ${{ secrets.HUB_USERNAME }}/node-cicd
