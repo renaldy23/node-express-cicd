@@ -1,14 +1,14 @@
 const express = require('express')
 const app = express()
 
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
   res.json({
     status: 200,
     message: 'Your endpoint is up',
   })
 })
 
-app.get('/', (req, res) => {
+app.get('/about', (req, res) => {
   res.json({
     status: '200',
     message: 'About pages',
