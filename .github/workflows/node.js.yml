@@ -51,7 +51,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           port: 22
-          script:
+          script: |
             docker login -u ${{ secrets.HUB_USERNAME }} -p ${{ secrets.HUB_TOKEN }}
             docker pull ${{ secrets.HUB_USERNAME }}/node-cicd:${{ github.run_number }}
-            docker run -p 80:3000 -d ${{ secrets.HUB_USERNAME }}/node-cicd:${{ github.run_number }}
+            docker run -d -p 80:3000 ${{ secrets.HUB_USERNAME }}/node-cicd:${{ github.run_number }}
