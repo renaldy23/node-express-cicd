@@ -14,6 +14,12 @@ app.get('/about', (req, res) => {
     message: 'About pages',
   })
 })
+app.get('/pages', (req, res) => {
+  res.json({
+    status: '200',
+    message: 'All pages',
+  })
+})
 
 app.listen(3000, () => {
   console.log('Server is running on port 3000')
